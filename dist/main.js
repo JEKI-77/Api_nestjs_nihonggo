@@ -10,8 +10,8 @@ async function bootstrap() {
     app.useStaticAssets((0, path_1.join)(__dirname, '..', 'public'));
     app.setBaseViewsDir((0, path_1.join)(__dirname, '..', 'views'));
     app.setViewEngine('hbs');
-    await app.listen(3000);
-    common_1.Logger.log(`running di port 3000`);
+    await app.listen(8000);
+    common_1.Logger.log(`running di port 8000`);
 }
 bootstrap();
 //# sourceMappingURL=main.js.map
