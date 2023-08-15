@@ -23,8 +23,20 @@ export class FilekitaService {
     return newfilekita;
   }
 
+  //fungsi getbyId
   async getById(id: number): Promise<FileKita> | undefined {
     return await this.filekitarepository.findOne({ where: { id } });
+  }
+
+  //fungsi Update
+  async update(id: number, data: Partial<filekitaDTO>) {
+    await this.filekitarepository.update({ id }, data);
+    return await this.filekitarepository.findOne({ where: { id } });
+  }
+
+  async hapusData(id: number) {
+    await this.filekitarepository.delete(id);
+    return { deleted: true };
   }
 
   //   async lihatsemua() {

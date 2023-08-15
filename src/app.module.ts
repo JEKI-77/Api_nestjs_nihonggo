@@ -5,6 +5,9 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { FilekitaModule } from './filekita/filekita.module';
 import { join } from 'path'; // Import join from path module
 import 'dotenv/config';
+import { APP_FILTER } from '@nestjs/core';
+import { HttpErrorFilter } from './shared/http_error.filter';
+import { KosakataModule } from './kosakata/kosakata.module';
 
 @Module({
   imports: [
@@ -21,9 +24,16 @@ import 'dotenv/config';
       logging: true,
     }),
     FilekitaModule,
+    KosakataModule,
   ],
 
   controllers: [AppController],
-  providers: [AppService],
+  providers: [
+    AppService,
+    {
+      provide: APP_FILTER,
+      useClass: HttpErrorFilter,
+    },
+  ],
 })
 export class AppModule {}

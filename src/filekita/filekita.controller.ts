@@ -1,7 +1,15 @@
-import { Body, Controller, Get, Param, Post } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Delete,
+  Get,
+  Param,
+  Post,
+  Put,
+} from '@nestjs/common';
 import { filekitaDTO } from './filekita.dto';
-import { FileKita } from './filekita.entity';
 import { FilekitaService } from './filekita.service';
+// import { FileKita } from './filekita.entity';
 
 @Controller('filekita')
 export class FilekitaController {
@@ -18,19 +26,32 @@ export class FilekitaController {
   lihatDetail(@Param('id') id: number) {
     return this.FilekitaServices.getById(id);
   }
-
+  //create data
   @Post()
   PostData(@Body() data: filekitaDTO) {
     return this.FilekitaServices.create(data);
   }
 
-  //   @Get(':id')
-  //   lihatDetail(@Param('id') id: string): string {
-  //     return 'ini controle detail' + id;
-  //   }
+  //Update
+  @Put(':id')
+  updateDetail(@Param('id') id: number, @Body() data: Partial<filekitaDTO>) {
+    return this.FilekitaServices.update(id, data);
+  }
 
-  //   @Get('service')
-  //   lihatsemua() {
-  //     return this.FilekitaServices.lihatsemua();
-  //   }
+  //delte data
+
+  @Delete(':id')
+  Delete(@Param('id') id: number) {
+    return this.FilekitaServices.hapusData(id);
+  }
 }
+
+//   @Get(':id')
+//   lihatDetail(@Param('id') id: string): string {
+//     return 'ini controle detail' + id;
+//   }
+
+//   @Get('service')
+//   lihatsemua() {
+//     return this.FilekitaServices.lihatsemua();
+//   }
