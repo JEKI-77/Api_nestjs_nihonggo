@@ -19,7 +19,7 @@ import { KosakataModule } from './kosakata/kosakata.module';
       password: process.env.DB_PW,
       database: process.env.DB_DATABASE,
       entities: [join(__dirname, '**', '*.entity{.ts,.js}')], // Use join to specify entity paths
-      synchronize: true,
+      synchronize: false,
       dropSchema: false,
       logging: true,
     }),
