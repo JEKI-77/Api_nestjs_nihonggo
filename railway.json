@@ -3,6 +3,14 @@
     "build": {
       "builder": "NIXPACKS"
     },
+    "env" : {
+        "PORT" : 4000,
+    "DB_PORT" : 5433,
+    "DB_HOST" : "localhost",
+    "DB_NAME " : "postgres",
+    "DB_PW" : "1234",
+    "DB_DATABASE " : "nestjs"
+    },
     "deploy": {
       "numReplicas": 1,
       "restartPolicyType": "ON_FAILURE",
