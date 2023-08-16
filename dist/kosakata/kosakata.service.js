@@ -24,6 +24,24 @@ let KosakataService = exports.KosakataService = class KosakataService {
     async getAllkosakata() {
         return await this.kosakataRepository.find();
     }
+    async getById(id) {
+        return await this.kosakataRepository.findOne({
+            where: { id },
+        });
+    }
+    async create(data) {
+        const newKosakata = await this.kosakataRepository.create(data);
+        await this.kosakataRepository.save(newKosakata);
+        return newKosakata;
+    }
+    async update(id, data) {
+        await this.kosakataRepository.update({ id }, data);
+        return await this.kosakataRepository.findOne({ where: { id } });
+    }
+    async deleteKosakata(id) {
+        await this.kosakataRepository.delete(id);
+        return { deleted: true };
+    }
 };
 exports.KosakataService = KosakataService = __decorate([
     (0, common_1.Injectable)(),

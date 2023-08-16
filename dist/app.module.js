@@ -25,10 +25,12 @@ exports.AppModule = AppModule = __decorate([
             typeorm_1.TypeOrmModule.forRoot({
                 type: 'postgres',
                 host: process.env.DB_HOST,
-                port: parseInt(process.env.DB_PORT),
+                port: 5433,
                 username: process.env.DB_NAME,
                 password: process.env.DB_PW,
                 database: process.env.DB_DATABASE,
+                migrations: ['dist/migrations/*.{ts,js}'],
+                migrationsTableName: 'typeorm_migrations',
                 entities: [(0, path_1.join)(__dirname, '**', '*.entity{.ts,.js}')],
                 synchronize: true,
                 dropSchema: false,
