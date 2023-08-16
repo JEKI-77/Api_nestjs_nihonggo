@@ -21,11 +21,17 @@ let KosakataService = exports.KosakataService = class KosakataService {
     constructor(kosakataRepository) {
         this.kosakataRepository = kosakataRepository;
     }
-    async getAllkosakata(limit, page) {
-        const [data, total] = await this.kosakataRepository.findAndCount({
-            skip: (page - 1) * limit,
-            take: limit,
-        });
+    async getAllkosakata(limit, page, kategori) {
+        let queryBuilder = this.kosakataRepository.createQueryBuilder('kosakata');
+        if (kategori) {
+            queryBuilder = queryBuilder.where('kosakata.kategori = :kategori', {
+                kategori,
+            });
+        }
+        const [data, total] = await queryBuilder
+            .skip((page - 1) * limit)
+            .take(limit)
+            .getManyAndCount();
         const totalPages = Math.ceil(total / limit);
         return {
             data,

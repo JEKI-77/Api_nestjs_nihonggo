@@ -4,7 +4,7 @@ import { KosakataService } from './kosakata.service';
 export declare class KosakataController {
     private KosakataServices;
     constructor(KosakataServices: KosakataService);
-    getKosakata(limit?: number, page?: number): Promise<{
+    getKosakata(limit: number, page: number, filter: string): Promise<{
         data: Kosakata[];
         page: number;
         totalPages: number;

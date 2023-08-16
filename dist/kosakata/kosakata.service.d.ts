@@ -5,7 +5,7 @@ import { Kosakata } from './kosakata.entity';
 export declare class KosakataService {
     private kosakataRepository;
     constructor(kosakataRepository: Repository<Kosakata>);
-    getAllkosakata(limit: number, page: number): Promise<{
+    getAllkosakata(limit: number, page: number, kategori?: string): Promise<{
         data: Kosakata[];
         page: number;
         totalPages: number;

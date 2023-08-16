@@ -19,11 +19,19 @@ export class KosakataService {
   //     totalItems: data.length,
   //   };
   // }
-  async getAllkosakata(limit: number, page: number) {
-    const [data, total] = await this.kosakataRepository.findAndCount({
-      skip: (page - 1) * limit,
-      take: limit,
-    });
+  async getAllkosakata(limit: number, page: number, kategori?: string) {
+    let queryBuilder = this.kosakataRepository.createQueryBuilder('kosakata');
+
+    if (kategori) {
+      queryBuilder = queryBuilder.where('kosakata.kategori = :kategori', {
+        kategori,
+      });
+    }
+
+    const [data, total] = await queryBuilder
+      .skip((page - 1) * limit)
+      .take(limit)
+      .getManyAndCount();
 
     const totalPages = Math.ceil(total / limit);
 

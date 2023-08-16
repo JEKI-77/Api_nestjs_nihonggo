@@ -27,8 +27,9 @@ export class KosakataController {
   async getKosakata(
     @Query('limit', ParseIntPipe) limit: number = 10,
     @Query('page', ParseIntPipe) page: number = 1,
+    @Query('filter') filter: string,
   ) {
-    return this.KosakataServices.getAllkosakata(limit, page);
+    return this.KosakataServices.getAllkosakata(limit, page, filter);
   }
 
   //get by id
