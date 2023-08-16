@@ -18,8 +18,10 @@ import { KosakataModule } from './kosakata/kosakata.module';
       username: process.env.DB_NAME,
       password: process.env.DB_PW,
       database: process.env.DB_DATABASE,
+      migrations: ['dist/migrations/*.{ts,js}'],
+      migrationsTableName: 'typeorm_migrations',
       entities: [join(__dirname, '**', '*.entity{.ts,.js}')], // Use join to specify entity paths
-      synchronize: false,
+      synchronize: true,
       dropSchema: false,
       logging: true,
     }),
