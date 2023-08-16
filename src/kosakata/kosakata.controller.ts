@@ -7,7 +7,6 @@ import {
   Post,
   Put,
 } from '@nestjs/common';
-import { retry } from 'rxjs';
 import { kosakataDTO } from './kosakata.dto';
 import { Kosakata } from './kosakata.entity';
 // import { kosakataDTO } from './kosakata.dto';
