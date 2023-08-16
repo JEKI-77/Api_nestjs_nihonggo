@@ -13,11 +13,11 @@ import { KosakataModule } from './kosakata/kosakata.module';
   imports: [
     TypeOrmModule.forRoot({
       type: 'postgres',
-      host: 'localhost',
-      port: 5433,
-      username: 'postgres',
-      password: '1234',
-      database: 'nestjs',
+      host: process.env.DB_HOST,
+      port: parseInt(process.env.DB_PORT),
+      username: process.env.DB_NAME,
+      password: process.env.DB_PW,
+      database: process.env.DB_DATABASE,
       entities: [join(__dirname, '**', '*.entity{.ts,.js}')], // Use join to specify entity paths
       synchronize: true,
       dropSchema: false,

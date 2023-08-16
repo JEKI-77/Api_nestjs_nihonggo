@@ -5,8 +5,7 @@ import { Logger } from '@nestjs/common';
 //mvc
 import { join } from 'path';
 import { NestExpressApplication } from '@nestjs/platform-express';
-
-// const port = process.env.PORT;
+const port = process.env.PORT;
 
 async function bootstrap() {
   // const app = await NestFactory.create(AppModule);
@@ -16,8 +15,8 @@ async function bootstrap() {
   app.setBaseViewsDir(join(__dirname, '..', 'views'));
   app.setViewEngine('hbs');
 
-  await app.listen(8000);
-  Logger.log(`running di port 8000`);
+  await app.listen(port);
+  Logger.log(`running di port ${port}`);
 }
 
 bootstrap();
