@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { HttpStatus, Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { kosakataDTO } from './kosakata.dto';
@@ -12,8 +12,27 @@ export class KosakataService {
   ) {}
 
   //get all data
-  async getAllkosakata() {
-    return await this.kosakataRepository.find();
+  // async getAllKosakata() {
+  //   const data = await this.kosakataRepository.find();
+  //   return {
+  //     data,
+  //     totalItems: data.length,
+  //   };
+  // }
+  async getAllkosakata(limit: number, page: number) {
+    const [data, total] = await this.kosakataRepository.findAndCount({
+      skip: (page - 1) * limit,
+      take: limit,
+    });
+
+    const totalPages = Math.ceil(total / limit);
+
+    return {
+      data,
+      page,
+      totalPages,
+      totalItems: total,
+    };
   }
 
   //getBy id
@@ -27,13 +46,24 @@ export class KosakataService {
   async create(data: kosakataDTO) {
     const newKosakata = await this.kosakataRepository.create(data);
     await this.kosakataRepository.save(newKosakata);
+
     return newKosakata;
   }
 
   //update data
   async update(id: number, data: Partial<kosakataDTO>) {
     await this.kosakataRepository.update({ id }, data);
-    return await this.kosakataRepository.findOne({ where: { id } });
+    const updateKosakata = await this.kosakataRepository.findOne({
+      where: { id },
+    });
+    if (!updateKosakata) {
+      throw new NotFoundException(`data dengan ID ${id} tidak ditemukan`);
+    }
+    return {
+      message: `Data berhasil diubah`,
+      status: HttpStatus.OK,
+      data: updateKosakata,
+    };
   }
 
   //delete

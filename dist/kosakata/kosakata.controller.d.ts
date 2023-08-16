@@ -4,10 +4,19 @@ import { KosakataService } from './kosakata.service';
 export declare class KosakataController {
     private KosakataServices;
     constructor(KosakataServices: KosakataService);
-    getKosakata(): Promise<Kosakata[]>;
+    getKosakata(limit?: number, page?: number): Promise<{
+        data: Kosakata[];
+        page: number;
+        totalPages: number;
+        totalItems: number;
+    }>;
     getKosakataById(id: number): Promise<Kosakata>;
     PostKosakata(data: kosakataDTO): Promise<Kosakata>;
-    updateKosakata(id: number, data: Partial<Kosakata>): Promise<Kosakata>;
+    updateKosakata(id: number, data: Partial<Kosakata>): Promise<{
+        message: string;
+        status: import("@nestjs/common").HttpStatus;
+        data: Kosakata;
+    }>;
     deleteKosakata(id: number): Promise<{
         deleted: boolean;
     }>;

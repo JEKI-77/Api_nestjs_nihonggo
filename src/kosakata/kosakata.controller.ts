@@ -4,8 +4,10 @@ import {
   Delete,
   Get,
   Param,
+  ParseIntPipe,
   Post,
   Put,
+  Query,
 } from '@nestjs/common';
 import { kosakataDTO } from './kosakata.dto';
 import { Kosakata } from './kosakata.entity';
@@ -19,9 +21,16 @@ export class KosakataController {
   //get all
 
   @Get()
-  getKosakata() {
-    return this.KosakataServices.getAllkosakata();
+  // getAllKosakata() {
+  //   return this.KosakataServices.getAllKosakata();
+  // }
+  async getKosakata(
+    @Query('limit', ParseIntPipe) limit: number = 10,
+    @Query('page', ParseIntPipe) page: number = 1,
+  ) {
+    return this.KosakataServices.getAllkosakata(limit, page);
   }
+
   //get by id
   @Get(':id')
   getKosakataById(@Param('id') id: number) {

@@ -21,8 +21,18 @@ let KosakataService = exports.KosakataService = class KosakataService {
     constructor(kosakataRepository) {
         this.kosakataRepository = kosakataRepository;
     }
-    async getAllkosakata() {
-        return await this.kosakataRepository.find();
+    async getAllkosakata(limit, page) {
+        const [data, total] = await this.kosakataRepository.findAndCount({
+            skip: (page - 1) * limit,
+            take: limit,
+        });
+        const totalPages = Math.ceil(total / limit);
+        return {
+            data,
+            page,
+            totalPages,
+            totalItems: total,
+        };
     }
     async getById(id) {
         return await this.kosakataRepository.findOne({
@@ -36,7 +46,17 @@ let KosakataService = exports.KosakataService = class KosakataService {
     }
     async update(id, data) {
         await this.kosakataRepository.update({ id }, data);
-        return await this.kosakataRepository.findOne({ where: { id } });
+        const updateKosakata = await this.kosakataRepository.findOne({
+            where: { id },
+        });
+        if (!updateKosakata) {
+            throw new common_1.NotFoundException(`data dengan ID ${id} tidak ditemukan`);
+        }
+        return {
+            message: `Data berhasil diubah`,
+            status: common_1.HttpStatus.OK,
+            data: updateKosakata,
+        };
     }
     async deleteKosakata(id) {
         await this.kosakataRepository.delete(id);

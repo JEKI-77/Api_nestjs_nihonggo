@@ -20,8 +20,8 @@ let KosakataController = exports.KosakataController = class KosakataController {
     constructor(KosakataServices) {
         this.KosakataServices = KosakataServices;
     }
-    getKosakata() {
-        return this.KosakataServices.getAllkosakata();
+    async getKosakata(limit = 10, page = 1) {
+        return this.KosakataServices.getAllkosakata(limit, page);
     }
     getKosakataById(id) {
         return this.KosakataServices.getById(id);
@@ -38,9 +38,11 @@ let KosakataController = exports.KosakataController = class KosakataController {
 };
 __decorate([
     (0, common_1.Get)(),
+    __param(0, (0, common_1.Query)('limit', common_1.ParseIntPipe)),
+    __param(1, (0, common_1.Query)('page', common_1.ParseIntPipe)),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", []),
-    __metadata("design:returntype", void 0)
+    __metadata("design:paramtypes", [Number, Number]),
+    __metadata("design:returntype", Promise)
 ], KosakataController.prototype, "getKosakata", null);
 __decorate([
     (0, common_1.Get)(':id'),
