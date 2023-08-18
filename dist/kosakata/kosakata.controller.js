@@ -20,6 +20,9 @@ let KosakataController = exports.KosakataController = class KosakataController {
     constructor(KosakataServices) {
         this.KosakataServices = KosakataServices;
     }
+    getAllKosakata() {
+        return this.KosakataServices.getAllKotoba();
+    }
     async getKosakata(limit = 10, page = 1, filter) {
         return this.KosakataServices.getAllkosakata(limit, page, filter);
     }
@@ -37,10 +40,16 @@ let KosakataController = exports.KosakataController = class KosakataController {
     }
 };
 __decorate([
+    (0, common_1.Get)('all'),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", void 0)
+], KosakataController.prototype, "getAllKosakata", null);
+__decorate([
     (0, common_1.Get)(),
     __param(0, (0, common_1.Query)('limit', common_1.ParseIntPipe)),
     __param(1, (0, common_1.Query)('page', common_1.ParseIntPipe)),
-    __param(2, (0, common_1.Query)('filter')),
+    __param(2, (0, common_1.Query)('kategori')),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Number, Number, String]),
     __metadata("design:returntype", Promise)

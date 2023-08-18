@@ -19,15 +19,17 @@ export class KosakataController {
   constructor(private KosakataServices: KosakataService) {}
 
   //get all
+  @Get('all')
+  getAllKosakata() {
+    return this.KosakataServices.getAllKotoba();
+  }
 
+  //get limit, pagination, filter
   @Get()
-  // getAllKosakata() {
-  //   return this.KosakataServices.getAllKosakata();
-  // }
   async getKosakata(
     @Query('limit', ParseIntPipe) limit: number = 10,
     @Query('page', ParseIntPipe) page: number = 1,
-    @Query('filter') filter: string,
+    @Query('kategori') filter: string,
   ) {
     return this.KosakataServices.getAllkosakata(limit, page, filter);
   }

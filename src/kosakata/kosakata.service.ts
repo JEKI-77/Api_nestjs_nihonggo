@@ -11,14 +11,15 @@ export class KosakataService {
     private kosakataRepository: Repository<Kosakata>,
   ) {}
 
-  //get all data
-  // async getAllKosakata() {
-  //   const data = await this.kosakataRepository.find();
-  //   return {
-  //     data,
-  //     totalItems: data.length,
-  //   };
-  // }
+  // get all data
+  async getAllKotoba() {
+    const data = await this.kosakataRepository.find();
+    return {
+      data,
+      totalItems: data.length,
+    };
+  }
+
   async getAllkosakata(limit: number, page: number, kategori?: string) {
     let queryBuilder = this.kosakataRepository.createQueryBuilder('kosakata');
 

@@ -21,6 +21,13 @@ let KosakataService = exports.KosakataService = class KosakataService {
     constructor(kosakataRepository) {
         this.kosakataRepository = kosakataRepository;
     }
+    async getAllKotoba() {
+        const data = await this.kosakataRepository.find();
+        return {
+            data,
+            totalItems: data.length,
+        };
+    }
     async getAllkosakata(limit, page, kategori) {
         let queryBuilder = this.kosakataRepository.createQueryBuilder('kosakata');
         if (kategori) {
