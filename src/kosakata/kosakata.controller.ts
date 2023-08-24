@@ -11,7 +11,6 @@ import {
 } from '@nestjs/common';
 import { kosakataDTO } from './kosakata.dto';
 import { Kosakata } from './kosakata.entity';
-// import { kosakataDTO } from './kosakata.dto';
 import { KosakataService } from './kosakata.service';
 
 @Controller('kosakata')

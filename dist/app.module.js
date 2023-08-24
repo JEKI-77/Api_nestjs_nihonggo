@@ -17,6 +17,8 @@ require("dotenv/config");
 const core_1 = require("@nestjs/core");
 const http_error_filter_1 = require("./shared/http_error.filter");
 const kosakata_module_1 = require("./kosakata/kosakata.module");
+const user_controller_1 = require("./user/user.controller");
+const user_module_1 = require("./user/user.module");
 let AppModule = exports.AppModule = class AppModule {
 };
 exports.AppModule = AppModule = __decorate([
@@ -38,8 +40,9 @@ exports.AppModule = AppModule = __decorate([
             }),
             filekita_module_1.FilekitaModule,
             kosakata_module_1.KosakataModule,
+            user_module_1.UserModule,
         ],
-        controllers: [app_controller_1.AppController],
+        controllers: [app_controller_1.AppController, user_controller_1.UserController],
         providers: [
             app_service_1.AppService,
             {

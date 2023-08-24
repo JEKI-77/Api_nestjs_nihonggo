@@ -8,6 +8,8 @@ import 'dotenv/config';
 import { APP_FILTER } from '@nestjs/core';
 import { HttpErrorFilter } from './shared/http_error.filter';
 import { KosakataModule } from './kosakata/kosakata.module';
+import { UserController } from './user/user.controller';
+import { UserModule } from './user/user.module';
 
 @Module({
   imports: [
@@ -27,9 +29,10 @@ import { KosakataModule } from './kosakata/kosakata.module';
     }),
     FilekitaModule,
     KosakataModule,
+    UserModule,
   ],
 
-  controllers: [AppController],
+  controllers: [AppController, UserController],
   providers: [
     AppService,
     {
