@@ -4,5 +4,5 @@ export declare class UserController {
     private userService;
     constructor(userService: UserService);
     getAllUsers(): Promise<import("./user.entity").User[]>;
-    postUsers(data: userDTO): Promise<any>;
+    postUsers(data: userDTO): Promise<import("./user.entity").User>;
 }

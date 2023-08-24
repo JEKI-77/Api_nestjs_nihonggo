@@ -2,13 +2,12 @@ import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { FilekitaModule } from './filekita/filekita.module';
 import { join } from 'path'; // Import join from path module
 import 'dotenv/config';
 import { APP_FILTER } from '@nestjs/core';
 import { HttpErrorFilter } from './shared/http_error.filter';
+import { FilekitaModule } from './filekita/filekita.module';
 import { KosakataModule } from './kosakata/kosakata.module';
-import { UserController } from './user/user.controller';
 import { UserModule } from './user/user.module';
 
 @Module({
@@ -32,7 +31,7 @@ import { UserModule } from './user/user.module';
     UserModule,
   ],
 
-  controllers: [AppController, UserController],
+  controllers: [AppController],
   providers: [
     AppService,
     {

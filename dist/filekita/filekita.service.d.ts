@@ -4,10 +4,10 @@ import { FileKita } from './filekita.entity';
 export declare class FilekitaService {
     private filekitarepository;
     constructor(filekitarepository: Repository<FileKita>);
-    showAll(): Promise<any>;
-    create(data: filekitaDTO): Promise<any>;
+    showAll(): Promise<FileKita[]>;
+    create(data: filekitaDTO): Promise<FileKita>;
     getById(id: number): Promise<FileKita> | undefined;
-    update(id: number, data: Partial<filekitaDTO>): Promise<any>;
+    update(id: number, data: Partial<filekitaDTO>): Promise<FileKita>;
     hapusData(id: number): Promise<{
         deleted: boolean;
     }>;

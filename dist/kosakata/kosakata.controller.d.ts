@@ -5,21 +5,21 @@ export declare class KosakataController {
     private KosakataServices;
     constructor(KosakataServices: KosakataService);
     getAllKosakata(): Promise<{
-        data: any;
-        totalItems: any;
+        data: Kosakata[];
+        totalItems: number;
     }>;
     getKosakata(limit: number, page: number, filter: string): Promise<{
-        data: any;
+        data: Kosakata[];
         page: number;
         totalPages: number;
-        totalItems: any;
+        totalItems: number;
     }>;
     getKosakataById(id: number): Promise<Kosakata>;
-    PostKosakata(data: kosakataDTO): Promise<any>;
+    PostKosakata(data: kosakataDTO): Promise<Kosakata>;
     updateKosakata(id: number, data: Partial<Kosakata>): Promise<{
         message: string;
-        status: any;
-        data: any;
+        status: import("@nestjs/common").HttpStatus;
+        data: Kosakata;
     }>;
     deleteKosakata(id: number): Promise<{
         deleted: boolean;
