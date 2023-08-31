@@ -8,7 +8,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.HttpErrorFilter = void 0;
 const common_1 = require("@nestjs/common");
-let HttpErrorFilter = exports.HttpErrorFilter = class HttpErrorFilter {
+let HttpErrorFilter = class HttpErrorFilter {
     catch(exception, host) {
         const ctx = host.switchToHttp();
         const request = ctx.getRequest();
@@ -25,6 +25,7 @@ let HttpErrorFilter = exports.HttpErrorFilter = class HttpErrorFilter {
         common_1.Logger.error(`${request.method}, ${request.url}`, JSON.stringify(errorResponse), 'ExceptionFilter');
     }
 };
+exports.HttpErrorFilter = HttpErrorFilter;
 exports.HttpErrorFilter = HttpErrorFilter = __decorate([
     (0, common_1.Catch)()
 ], HttpErrorFilter);

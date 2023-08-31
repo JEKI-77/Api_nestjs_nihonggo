@@ -15,7 +15,7 @@ const core_1 = require("@nestjs/core");
 const roles_decorator_1 = require("../decorator/roles.decorator");
 const jwt = require("jsonwebtoken");
 const SECRET_KEY = process.env.JWT_SECRET || 'djkealllaiwjfba4fhflwi';
-let RolesGuard = exports.RolesGuard = class RolesGuard {
+let RolesGuard = class RolesGuard {
     constructor(reflector) {
         this.reflector = reflector;
     }
@@ -47,6 +47,7 @@ let RolesGuard = exports.RolesGuard = class RolesGuard {
         }
     }
 };
+exports.RolesGuard = RolesGuard;
 exports.RolesGuard = RolesGuard = __decorate([
     (0, common_1.Injectable)(),
     __metadata("design:paramtypes", [core_1.Reflector])

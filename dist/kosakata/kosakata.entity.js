@@ -11,8 +11,9 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Kosakata = void 0;
 const typeorm_1 = require("typeorm");
-let Kosakata = exports.Kosakata = class Kosakata {
+let Kosakata = class Kosakata {
 };
+exports.Kosakata = Kosakata;
 __decorate([
     (0, typeorm_1.PrimaryGeneratedColumn)(),
     __metadata("design:type", Number)

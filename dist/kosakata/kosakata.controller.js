@@ -16,7 +16,7 @@ exports.KosakataController = void 0;
 const common_1 = require("@nestjs/common");
 const kosakata_dto_1 = require("./kosakata.dto");
 const kosakata_service_1 = require("./kosakata.service");
-let KosakataController = exports.KosakataController = class KosakataController {
+let KosakataController = class KosakataController {
     constructor(KosakataServices) {
         this.KosakataServices = KosakataServices;
     }
@@ -39,6 +39,7 @@ let KosakataController = exports.KosakataController = class KosakataController {
         return this.KosakataServices.deleteKosakata(id);
     }
 };
+exports.KosakataController = KosakataController;
 __decorate([
     (0, common_1.Get)('all'),
     __metadata("design:type", Function),

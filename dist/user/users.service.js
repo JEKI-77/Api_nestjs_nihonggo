@@ -18,7 +18,7 @@ const typeorm_1 = require("@nestjs/typeorm");
 const typeorm_2 = require("typeorm");
 const users_entity_1 = require("./entity/users.entity");
 const bcrypt = require("bcrypt");
-let UsersService = exports.UsersService = class UsersService {
+let UsersService = class UsersService {
     constructor(userRepository) {
         this.userRepository = userRepository;
     }
@@ -54,6 +54,7 @@ let UsersService = exports.UsersService = class UsersService {
         }
     }
 };
+exports.UsersService = UsersService;
 exports.UsersService = UsersService = __decorate([
     (0, common_1.Injectable)(),
     __param(0, (0, typeorm_1.InjectRepository)(users_entity_1.User)),

@@ -12,8 +12,9 @@ const typeorm_1 = require("@nestjs/typeorm");
 const kosakata_controller_1 = require("./kosakata.controller");
 const kosakata_entity_1 = require("./kosakata.entity");
 const kosakata_service_1 = require("./kosakata.service");
-let KosakataModule = exports.KosakataModule = class KosakataModule {
+let KosakataModule = class KosakataModule {
 };
+exports.KosakataModule = KosakataModule;
 exports.KosakataModule = KosakataModule = __decorate([
     (0, common_1.Module)({
         imports: [typeorm_1.TypeOrmModule.forFeature([kosakata_entity_1.Kosakata])],

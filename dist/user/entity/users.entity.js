@@ -12,8 +12,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.User = void 0;
 const role_enum_1 = require("../../enums/role.enum");
 const typeorm_1 = require("typeorm");
-let User = exports.User = class User {
+let User = class User {
 };
+exports.User = User;
 __decorate([
     (0, typeorm_1.PrimaryGeneratedColumn)('uuid'),
     __metadata("design:type", String)

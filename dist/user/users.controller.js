@@ -18,7 +18,7 @@ const swagger_1 = require("@nestjs/swagger");
 const jwt_auth_guard_1 = require("../auth/guards/jwt-auth.guard");
 const create_user_dto_1 = require("./dto/create-user.dto");
 const users_service_1 = require("./users.service");
-let UsersController = exports.UsersController = class UsersController {
+let UsersController = class UsersController {
     constructor(usersService) {
         this.usersService = usersService;
     }
@@ -29,6 +29,7 @@ let UsersController = exports.UsersController = class UsersController {
         return req.user;
     }
 };
+exports.UsersController = UsersController;
 __decorate([
     (0, common_1.Post)('/signup'),
     (0, swagger_1.ApiOperation)({

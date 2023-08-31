@@ -14,7 +14,7 @@ const common_1 = require("@nestjs/common");
 const core_1 = require("@nestjs/core");
 const passport_1 = require("@nestjs/passport");
 const public_1 = require("../publicRoutes/public");
-let JwtAuthGuard = exports.JwtAuthGuard = class JwtAuthGuard extends (0, passport_1.AuthGuard)('jwt') {
+let JwtAuthGuard = class JwtAuthGuard extends (0, passport_1.AuthGuard)('jwt') {
     constructor(reflector) {
         super();
         this.reflector = reflector;
@@ -30,6 +30,7 @@ let JwtAuthGuard = exports.JwtAuthGuard = class JwtAuthGuard extends (0, passpor
         return super.canActivate(context);
     }
 };
+exports.JwtAuthGuard = JwtAuthGuard;
 exports.JwtAuthGuard = JwtAuthGuard = __decorate([
     (0, common_1.Injectable)(),
     __metadata("design:paramtypes", [core_1.Reflector])

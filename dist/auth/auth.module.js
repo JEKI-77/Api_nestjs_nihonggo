@@ -19,8 +19,9 @@ const local_strategy_1 = require("./strategies/local.strategy");
 const auth_controller_1 = require("./auth.controller");
 const roles_guard_1 = require("./guards/roles.guard");
 const users_entity_1 = require("../user/entity/users.entity");
-let AuthModule = exports.AuthModule = class AuthModule {
+let AuthModule = class AuthModule {
 };
+exports.AuthModule = AuthModule;
 exports.AuthModule = AuthModule = __decorate([
     (0, common_1.Module)({
         imports: [

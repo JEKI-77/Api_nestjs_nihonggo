@@ -17,7 +17,7 @@ const common_1 = require("@nestjs/common");
 const typeorm_1 = require("@nestjs/typeorm");
 const typeorm_2 = require("typeorm");
 const kosakata_entity_1 = require("./kosakata.entity");
-let KosakataService = exports.KosakataService = class KosakataService {
+let KosakataService = class KosakataService {
     constructor(kosakataRepository) {
         this.kosakataRepository = kosakataRepository;
     }
@@ -76,6 +76,7 @@ let KosakataService = exports.KosakataService = class KosakataService {
         return { deleted: true };
     }
 };
+exports.KosakataService = KosakataService;
 exports.KosakataService = KosakataService = __decorate([
     (0, common_1.Injectable)(),
     __param(0, (0, typeorm_1.InjectRepository)(kosakata_entity_1.Kosakata)),
