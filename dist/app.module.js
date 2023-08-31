@@ -11,7 +11,7 @@ const common_1 = require("@nestjs/common");
 const typeorm_1 = require("@nestjs/typeorm");
 require("dotenv/config");
 const kosakata_module_1 = require("./kosakata/kosakata.module");
-const users_module_1 = require("./users/users.module");
+const users_module_1 = require("./user/users.module");
 const typeorm_config_1 = require("./config/typeorm.config");
 let AppModule = exports.AppModule = class AppModule {
 };

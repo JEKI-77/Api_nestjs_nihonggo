@@ -11,14 +11,14 @@ const typeorm_1 = require("@nestjs/typeorm");
 const common_1 = require("@nestjs/common");
 const jwt_1 = require("@nestjs/jwt");
 const passport_1 = require("@nestjs/passport");
-const users_module_1 = require("../users/users.module");
+const users_module_1 = require("../user/users.module");
 const auth_service_1 = require("./auth.service");
 const constants_1 = require("../constants/constants");
 const jwt_strategy_1 = require("./strategies/jwt.strategy");
 const local_strategy_1 = require("./strategies/local.strategy");
 const auth_controller_1 = require("./auth.controller");
 const roles_guard_1 = require("./guards/roles.guard");
-const users_entity_1 = require("../users/entity/users.entity");
+const users_entity_1 = require("../user/entity/users.entity");
 let AuthModule = exports.AuthModule = class AuthModule {
 };
 exports.AuthModule = AuthModule = __decorate([
