@@ -16,7 +16,7 @@ async function bootstrap() {
   // Apply CORS middleware
   app.use(
     cors({
-      origin: 'http://localhost:3000', // Replace with your client's URL
+      origin: 'https://pintar-nihonggo.vercel.app', // Replace with your client's URL
       credentials: true, // Allow sending cookies
     }),
   );
