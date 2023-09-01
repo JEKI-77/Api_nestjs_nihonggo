@@ -16,7 +16,7 @@ exports.KosakataService = void 0;
 const common_1 = require("@nestjs/common");
 const typeorm_1 = require("@nestjs/typeorm");
 const typeorm_2 = require("typeorm");
-const kosakata_entity_1 = require("./kosakata.entity");
+const kosakata_entity_1 = require("./entity/kosakata.entity");
 let KosakataService = class KosakataService {
     constructor(kosakataRepository) {
         this.kosakataRepository = kosakataRepository;

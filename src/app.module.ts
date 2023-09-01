@@ -7,9 +7,15 @@ import 'dotenv/config';
 import { KosakataModule } from './kosakata/kosakata.module';
 import { UsersModule } from './user/users.module';
 import { typeOrmConfig } from './config/typeorm.config';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
-  imports: [TypeOrmModule.forRoot(typeOrmConfig), KosakataModule, UsersModule],
+  imports: [
+    TypeOrmModule.forRoot(typeOrmConfig),
+    KosakataModule,
+    UsersModule,
+    AuthModule,
+  ],
 
   // controllers: [AppController],
   // providers: [

@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { KosakataController } from './kosakata.controller';
-import { Kosakata } from './kosakata.entity';
+import { Kosakata } from './entity/kosakata.entity';
 import { KosakataService } from './kosakata.service';
 
 @Module({

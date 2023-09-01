@@ -1,8 +1,8 @@
 import { HttpStatus, Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { kosakataDTO } from './kosakata.dto';
-import { Kosakata } from './kosakata.entity';
+import { kosakataDTO } from './dto/kosakata.dto';
+import { Kosakata } from './entity/kosakata.entity';
 
 @Injectable()
 export class KosakataService {

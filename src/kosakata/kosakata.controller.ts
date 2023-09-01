@@ -9,8 +9,8 @@ import {
   Put,
   Query,
 } from '@nestjs/common';
-import { kosakataDTO } from './kosakata.dto';
-import { Kosakata } from './kosakata.entity';
+import { kosakataDTO } from './dto/kosakata.dto';
+import { Kosakata } from './entity/kosakata.entity';
 import { KosakataService } from './kosakata.service';
 
 @Controller('kosakata')

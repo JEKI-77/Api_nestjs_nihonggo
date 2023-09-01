@@ -31,7 +31,7 @@ export const typeOrmConfig: TypeOrmModuleOptions = {
   database: process.env.DB_DATABASE,
   migrations: ['dist/migrations/*.{ts,js}'],
   migrationsTableName: 'typeorm_migrations',
-  entities: [join(__dirname, '**', '*.entity{.ts,.js}')], // Use join to specify entity paths
+  entities: [join(__dirname, '../**/*.entity{.ts,.js}')], //seuaika path nya
   synchronize: true,
   dropSchema: false,
   logging: true,

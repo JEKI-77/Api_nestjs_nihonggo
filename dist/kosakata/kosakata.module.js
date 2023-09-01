@@ -10,7 +10,7 @@ exports.KosakataModule = void 0;
 const common_1 = require("@nestjs/common");
 const typeorm_1 = require("@nestjs/typeorm");
 const kosakata_controller_1 = require("./kosakata.controller");
-const kosakata_entity_1 = require("./kosakata.entity");
+const kosakata_entity_1 = require("./entity/kosakata.entity");
 const kosakata_service_1 = require("./kosakata.service");
 let KosakataModule = class KosakataModule {
 };

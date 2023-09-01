@@ -1,7 +1,7 @@
 import { HttpStatus } from '@nestjs/common';
 import { Repository } from 'typeorm';
-import { kosakataDTO } from './kosakata.dto';
-import { Kosakata } from './kosakata.entity';
+import { kosakataDTO } from './dto/kosakata.dto';
+import { Kosakata } from './entity/kosakata.entity';
 export declare class KosakataService {
     private kosakataRepository;
     constructor(kosakataRepository: Repository<Kosakata>);

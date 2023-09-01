@@ -25,7 +25,7 @@ exports.typeOrmConfig = {
     database: process.env.DB_DATABASE,
     migrations: ['dist/migrations/*.{ts,js}'],
     migrationsTableName: 'typeorm_migrations',
-    entities: [(0, path_1.join)(__dirname, '**', '*.entity{.ts,.js}')],
+    entities: [(0, path_1.join)(__dirname, '../**/*.entity{.ts,.js}')],
     synchronize: true,
     dropSchema: false,
     logging: true,

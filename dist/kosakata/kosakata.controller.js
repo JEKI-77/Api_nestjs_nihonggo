@@ -14,7 +14,7 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.KosakataController = void 0;
 const common_1 = require("@nestjs/common");
-const kosakata_dto_1 = require("./kosakata.dto");
+const kosakata_dto_1 = require("./dto/kosakata.dto");
 const kosakata_service_1 = require("./kosakata.service");
 let KosakataController = class KosakataController {
     constructor(KosakataServices) {

@@ -13,12 +13,18 @@ require("dotenv/config");
 const kosakata_module_1 = require("./kosakata/kosakata.module");
 const users_module_1 = require("./user/users.module");
 const typeorm_config_1 = require("./config/typeorm.config");
+const auth_module_1 = require("./auth/auth.module");
 let AppModule = class AppModule {
 };
 exports.AppModule = AppModule;
 exports.AppModule = AppModule = __decorate([
     (0, common_1.Module)({
-        imports: [typeorm_1.TypeOrmModule.forRoot(typeorm_config_1.typeOrmConfig), kosakata_module_1.KosakataModule, users_module_1.UsersModule],
+        imports: [
+            typeorm_1.TypeOrmModule.forRoot(typeorm_config_1.typeOrmConfig),
+            kosakata_module_1.KosakataModule,
+            users_module_1.UsersModule,
+            auth_module_1.AuthModule,
+        ],
     })
 ], AppModule);
 //# sourceMappingURL=app.module.js.map
