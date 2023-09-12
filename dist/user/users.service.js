@@ -29,11 +29,10 @@ let UsersService = class UsersService {
             user.username = createUserDto.username;
             user.email = createUserDto.email;
             user.password = hashPassword;
-            user.role = createUserDto.role;
             return this.userRepository.save(user);
         }
         catch (err) {
-            throw new Error(`Error creating ${err} user ${err.message}`);
+            throw new common_1.BadRequestException(`Error creating user: ${err.message}`);
         }
     }
     async findOne(email, password) {
@@ -41,16 +40,19 @@ let UsersService = class UsersService {
             const user = await this.userRepository.findOne({
                 where: { email },
             });
+            if (!user) {
+                throw new common_1.BadRequestException('User not found');
+            }
             const isMatch = await bcrypt.compare(password, user.password);
-            if (user && isMatch) {
+            if (isMatch) {
                 return user;
             }
             else {
-                throw new Error(`User not found`);
+                throw new common_1.BadRequestException('Invalid password');
             }
         }
         catch (err) {
-            throw new Error(`Error finding ${err} user ${err.message}`);
+            throw new common_1.BadRequestException(`Error finding user: ${err.message}`);
         }
     }
 };

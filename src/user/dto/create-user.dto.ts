@@ -22,7 +22,7 @@ export class CreateUserDto {
   @MinLength(4)
   @MaxLength(20)
   @Matches(/((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/, {
-    message: 'password too weak',
+    message: '*Gunakan Kata Sandi Kombinasi Huruf Kapital dan Angka ',
   })
   password: string;
 

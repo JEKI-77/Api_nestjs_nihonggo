@@ -9,8 +9,9 @@ import {
 import { ApiOperation } from '@nestjs/swagger';
 import { AuthService } from './auth.service';
 import { LocalAuthGuard } from './guards/local-auth.guard';
+import { User } from '../user/entity/users.entity'; // Sesuaikan dengan lokasi tipe User Anda
 import { Request } from 'express';
-// import { JwtAuthGuard } from './guards/jwt-auth.guard';
+
 @Controller('auth')
 export class AuthController {
   constructor(private authService: AuthService) {}
@@ -22,6 +23,6 @@ export class AuthController {
   @UseGuards(LocalAuthGuard)
   @Post('/login')
   async login(@Req() req: Request) {
-    return await this.authService.login(req['user']);
+    return await this.authService.login(req['user'] as User);
   }
 }

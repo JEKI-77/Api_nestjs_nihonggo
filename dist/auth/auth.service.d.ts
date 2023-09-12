@@ -9,6 +9,7 @@ export declare class AuthService {
         token: string;
         username: any;
         email: any;
+        password: any;
         sub: any;
         role: any;
     }>;

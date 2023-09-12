@@ -31,7 +31,7 @@ __decorate([
     (0, class_validator_1.MinLength)(4),
     (0, class_validator_1.MaxLength)(20),
     (0, class_validator_1.Matches)(/((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/, {
-        message: 'password too weak',
+        message: '*Gunakan Kata Sandi Kombinasi Huruf Kapital dan Angka ',
     }),
     __metadata("design:type", String)
 ], CreateUserDto.prototype, "password", void 0);
