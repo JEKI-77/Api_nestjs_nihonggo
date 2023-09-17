@@ -12,7 +12,10 @@ const port = process.env.PORT;
 async function bootstrap() {
     const app = await core_1.NestFactory.create(app_module_1.AppModule);
     app.use(cors({
-        origin: 'https://pintar-nihonggo.vercel.app',
+        origin: [
+            'http://localhost:3000/',
+            'https://pintar-nihonggo-eifzt9o8e-putra7.vercel.app/',
+        ],
         credentials: true,
     }));
     const config = new swagger_1.DocumentBuilder()
