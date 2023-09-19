@@ -14,6 +14,7 @@ const kosakata_module_1 = require("./kosakata/kosakata.module");
 const users_module_1 = require("./user/users.module");
 const typeorm_config_1 = require("./config/typeorm.config");
 const auth_module_1 = require("./auth/auth.module");
+const kanji_module_1 = require("./kanji/kanji.module");
 let AppModule = class AppModule {
 };
 exports.AppModule = AppModule;
@@ -24,6 +25,7 @@ exports.AppModule = AppModule = __decorate([
             kosakata_module_1.KosakataModule,
             users_module_1.UsersModule,
             auth_module_1.AuthModule,
+            kanji_module_1.KanjiModule,
         ],
     })
 ], AppModule);

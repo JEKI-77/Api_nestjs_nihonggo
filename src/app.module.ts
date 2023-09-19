@@ -8,6 +8,7 @@ import { KosakataModule } from './kosakata/kosakata.module';
 import { UsersModule } from './user/users.module';
 import { typeOrmConfig } from './config/typeorm.config';
 import { AuthModule } from './auth/auth.module';
+import { KanjiModule } from './kanji/kanji.module';
 
 @Module({
   imports: [
@@ -15,7 +16,9 @@ import { AuthModule } from './auth/auth.module';
     KosakataModule,
     UsersModule,
     AuthModule,
+    KanjiModule,
   ],
+  // controllers: [kanjiController],
 
   // controllers: [AppController],
   // providers: [
