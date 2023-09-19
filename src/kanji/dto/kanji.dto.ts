@@ -3,5 +3,5 @@ export class kanjiDTO {
   onyomi: string;
   kunyomi: string;
   arti: string;
-  kategori: string;
+  level: string;
 }
