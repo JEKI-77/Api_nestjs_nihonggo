@@ -21,6 +21,10 @@ __decorate([
 __decorate([
     (0, typeorm_1.Column)('text'),
     __metadata("design:type", String)
+], kanji.prototype, "kanji", void 0);
+__decorate([
+    (0, typeorm_1.Column)('text'),
+    __metadata("design:type", String)
 ], kanji.prototype, "onyomi", void 0);
 __decorate([
     (0, typeorm_1.Column)('text'),
@@ -33,7 +37,7 @@ __decorate([
 __decorate([
     (0, typeorm_1.Column)('text'),
     __metadata("design:type", String)
-], kanji.prototype, "kategori", void 0);
+], kanji.prototype, "level", void 0);
 exports.kanji = kanji = __decorate([
     (0, typeorm_1.Entity)()
 ], kanji);
