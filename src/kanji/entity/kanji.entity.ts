@@ -18,5 +18,5 @@ export class kanji {
   arti: string;
 
   @Column('text')
-  kategori: string;
+  level: string;
 }
