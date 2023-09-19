@@ -6,6 +6,9 @@ export class kanji {
   id: number;
 
   @Column('text')
+  kanji: string;
+
+  @Column('text')
   onyomi: string;
 
   @Column('text')
