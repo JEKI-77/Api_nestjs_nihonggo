@@ -16,10 +16,8 @@ async function bootstrap() {
   // Apply CORS middleware
   app.use(
     cors({
-      origin: [
-        'http://localhost:3000/',
-        'https://pintar-nihonggo-eifzt9o8e-putra7.vercel.app/',
-      ],
+      origin: 'https://pintar-nihonggo-eifzt9o8e-putra7.vercel.app/',
+      //'http://localhost:3000/',
       credentials: true, // Allow sending cookies
     }),
   );
