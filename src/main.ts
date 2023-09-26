@@ -14,7 +14,7 @@ async function bootstrap() {
 
   // Enable CORS
   app.enableCors({
-    origin: 'https://pintar-nihonggo.vercel.app',
+    origin: ['https://pintar-nihonggo.vercel.app', 'http://localhost:3000/'],
     credentials: true,
   });
 
