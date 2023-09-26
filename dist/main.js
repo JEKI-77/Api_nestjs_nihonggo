@@ -5,19 +5,15 @@ const app_module_1 = require("./app.module");
 require("dotenv/config");
 const common_1 = require("@nestjs/common");
 const path_1 = require("path");
-const cors = require("cors");
 const swagger_1 = require("@nestjs/swagger");
 const roles_guard_1 = require("./auth/guards/roles.guard");
-const port = process.env.PORT;
+const port = process.env.PORT || 3000;
 async function bootstrap() {
     const app = await core_1.NestFactory.create(app_module_1.AppModule);
-    app.use(cors({
-        origin: [
-            'http://localhost:3000/',
-            'https://pintar-nihonggo-eifzt9o8e-putra7.vercel.app/',
-        ],
+    app.enableCors({
+        origin: 'https://pintar-nihonggo.vercel.app',
         credentials: true,
-    }));
+    });
     const config = new swagger_1.DocumentBuilder()
         .setTitle('Ecommerce API Documentation')
         .setDescription('The Ecommerce API description')

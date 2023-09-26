@@ -4,23 +4,19 @@ import 'dotenv/config';
 import { Logger } from '@nestjs/common';
 import { join } from 'path';
 import { NestExpressApplication } from '@nestjs/platform-express';
-import * as cors from 'cors'; // Import the CORS module
-import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
+import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import { RolesGuard } from './auth/guards/roles.guard';
 
-const port = process.env.PORT;
+const port = process.env.PORT || 3000;
 
 async function bootstrap() {
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
 
-  // Apply CORS middleware
-  app.use(
-    cors({
-      origin: 'https://pintar-nihonggo.vercel.app',
-      //'http://localhost:3000/',
-      credentials: true, // Allow sending cookies
-    }),
-  );
+  // Enable CORS
+  app.enableCors({
+    origin: 'https://pintar-nihonggo.vercel.app',
+    credentials: true,
+  });
 
   const config = new DocumentBuilder()
     .setTitle('Ecommerce API Documentation')
@@ -31,10 +27,8 @@ async function bootstrap() {
 
   const document = SwaggerModule.createDocument(app, config);
 
-  // SwaggerModule setup (see https://docs.nestjs.com/recipes/swagger)
   SwaggerModule.setup('api', app, document);
 
-  // Global Guards (see https://docs.nestjs.com/guards#global-guards)
   const reflector = app.get(Reflector);
   app.useGlobalGuards(new RolesGuard(reflector));
 
